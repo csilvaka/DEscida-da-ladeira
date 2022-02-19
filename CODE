@@ -2,14 +2,18 @@
 #include <stdlib.h>
 #include <locale.h>
 
+    float minuto [2][4]=0;
+    float segundo [2][4]=0;
+    float milisegundo [2][4]=0;
+    float somaseg [2][4]=0;
+    int rankmin[4]=0;
+    int rankseg[4]=0;
+    int rankmilli[4]=0;
+    float rankmin[4]=0,rankmax[4]=0, winner[4]=0, rank[4]=0;
 
 int main()
 {
-    float minuto [3][5];
-    float segundo [3][5];
-    float milisegundo [3][5];
 
-    float somaseg [3][5];
 
     int menu, men1 ,men2, men3;
     setlocale(LC_ALL, "Portuguese");
@@ -214,13 +218,131 @@ int main()
                         {
                         menu4:
                         system("cls");
+                        /*transformando em segundos Time1*/
+                            somaseg[0][0]=(minuto[0][0]/60)+ segundo[0][0]+(milisegundo[0][0]/1000);
+                            somaseg[1][0]=(minuto[1][0]/60)+ segundo[1][0]+(milisegundo[1][0]/1000);
+                            somaseg[2][0]=(minuto[2][0]/60)+ segundo[2][0]+(milisegundo[2][0]/1000);
+                        /*transformando em segundos Time2*/
+                            somaseg[0][1]=(minuto[0][1]/60)+ segundo[0][1]+(milisegundo[0][1]/1000);
+                            somaseg[1][1]=(minuto[1][1]/60)+ segundo[1][1]+(milisegundo[1][1]/1000);
+                            somaseg[2][1]=(minuto[2][1]/60)+ segundo[2][1]+(milisegundo[2][1]/1000);
+                         /*transformando em segundos Time3*/
+                            somaseg[0][2]=(minuto[0][2]/60)+ segundo[0][2]+(milisegundo[0][2]/1000);
+                            somaseg[1][2]=(minuto[1][2]/60)+ segundo[1][2]+(milisegundo[1][2]/1000);
+                            somaseg[2][2]=(minuto[2][2]/60)+ segundo[2][2]+(milisegundo[2][2]/1000);
+                         /*transformando em segundos Time4*/
+                            somaseg[0][3]=(minuto[0][3]/60)+ segundo[0][3]+(milisegundo[0][3]/1000);
+                            somaseg[1][3]=(minuto[1][3]/60)+ segundo[1][3]+(milisegundo[1][3]/1000);
+                            somaseg[2][3]=(minuto[2][3]/60)+ segundo[2][3]+(milisegundo[2][3]/1000);
+                         /*transformando em segundos Time5*/
+                            somaseg[0][4]=(minuto[0][4]/60)+ segundo[0][4]+(milisegundo[0][4]/1000);
+                            somaseg[1][4]=(minuto[1][4]/60)+ segundo[1][4]+(milisegundo[1][4]/1000);
+                            somaseg[2][4]=(minuto[2][4]/60)+ segundo[2][4]+(milisegundo[2][4]/1000);
+                         /*determinando o tempo minimo*/
+                            rankmin[0]=( somaseg[0][0]<=somaseg[1][0]&&somaseg[0][0]<=somaseg[2][0])?somaseg[0][0]:(somaseg[1][0]<=somaseg[0][0]&&somaseg[1][0]<=somaseg[2][0])?somaseg[1][0]:somaseg[2][0];
+                            rankmin[1]=( somaseg[0][1]<=somaseg[1][1]&&somaseg[0][1]<=somaseg[2][1])?somaseg[0][1]:(somaseg[1][1]<=somaseg[0][1]&&somaseg[1][1]<=somaseg[2][1])?somaseg[1][1]:somaseg[2][1];
+                            rankmin[2]=( somaseg[0][2]<=somaseg[1][2]&&somaseg[0][2]<=somaseg[2][2])?somaseg[0][2]:(somaseg[1][2]<=somaseg[0][2]&&somaseg[1][2]<=somaseg[2][2])?somaseg[1][2]:somaseg[2][2];
+                            rankmin[3]=( somaseg[0][3]<=somaseg[1][3]&&somaseg[0][3]<=somaseg[2][3])?somaseg[0][3]:(somaseg[1][3]<=somaseg[0][3]&&somaseg[1][3]<=somaseg[2][3])?somaseg[1][3]:somaseg[2][3];
+                            rankmin[4]=( somaseg[0][4]<=somaseg[1][4]&&somaseg[0][4]<=somaseg[2][4])?somaseg[0][4]:(somaseg[1][4]<=somaseg[0][4]&&somaseg[1][4]<=somaseg[2][4])?somaseg[1][4]:somaseg[2][4];
+                          /*determinando o tempo maximo*/
+                            rankmax[0]=( somaseg[0][0]>=somaseg[1][0]&&somaseg[0][0]>=somaseg[2][0])?somaseg[0][0]:(somaseg[1][0]>=somaseg[0][0]&&somaseg[1][0]>=somaseg[2][0])?somaseg[1][0]:somaseg[2][0];
+                            rankmax[1]=( somaseg[0][1]>=somaseg[1][1]&&somaseg[0][1]>=somaseg[2][1])?somaseg[0][1]:(somaseg[1][1]>=somaseg[0][1]&&somaseg[1][1]>=somaseg[2][1])?somaseg[1][1]:somaseg[2][1];
+                            rankmax[2]=( somaseg[0][2]>=somaseg[1][2]&&somaseg[0][2]>=somaseg[2][2])?somaseg[0][2]:(somaseg[1][2]>=somaseg[0][2]&&somaseg[1][2]>=somaseg[2][2])?somaseg[1][2]:somaseg[2][2];
+                            rankmax[3]=( somaseg[0][3]>=somaseg[1][3]&&somaseg[0][3]>=somaseg[2][3])?somaseg[0][3]:(somaseg[1][3]>=somaseg[0][3]&&somaseg[1][3]>=somaseg[2][3])?somaseg[1][3]:somaseg[2][3];
+                            rankmax[4]=( somaseg[0][4]>=somaseg[1][4]&&somaseg[0][4]>=somaseg[2][4])?somaseg[0][4]:(somaseg[1][4]>=somaseg[0][4]&&somaseg[1][4]>=somaseg[2][4])?somaseg[1][4]:somaseg[2][4];
+
+                           /*zerando o tempo minimo*/
+                            if(rankmin[0]=somaseg[0][0]){somaseg[0][0]=0;}
+                            if(rankmin[0]=somaseg[1][0]){somaseg[1][0]=0;}
+                            if(rankmin[0]=somaseg[2][0]){somaseg[2][0]=0;}
+                            if(rankmin[1]=somaseg[0][1]){somaseg[0][1]=0;}
+                            if(rankmin[1]=somaseg[1][1]){somaseg[1][1]=0;}
+                            if(rankmin[1]=somaseg[2][1]){somaseg[2][1]=0;}
+                            if(rankmin[2]=somaseg[0][2]){somaseg[0][2]=0;}
+                            if(rankmin[2]=somaseg[1][2]){somaseg[1][2]=0;}
+                            if(rankmin[2]=somaseg[2][2]){somaseg[2][2]=0;}
+                            if(rankmin[3]=somaseg[0][3]){somaseg[0][3]=0;}
+                            if(rankmin[3]=somaseg[1][3]){somaseg[1][3]=0;}
+                            if(rankmin[3]=somaseg[2][3]){somaseg[2][3]=0;}
+                            if(rankmin[4]=somaseg[0][4]){somaseg[0][4]=0;}
+                            if(rankmin[4]=somaseg[1][4]){somaseg[1][4]=0;}
+                            if(rankmin[4]=somaseg[2][4]){somaseg[2][4]=0;}
+
+                            /*separando o tempo maximo*/
+                            if(rankmax[0]=somaseg[0][0]){winner[0]=somaseg[0][0];}
+                            if(rankmax[0]=somaseg[1][0]){winner[0]=somaseg[1][0];}
+                            if(rankmax[0]=somaseg[2][0]){winner[0]=somaseg[2][0];}
+                            if(rankmax[1]=somaseg[0][1]){winner[1]=somaseg[0][1];}
+                            if(rankmax[1]=somaseg[1][1]){winner[1]=somaseg[1][1];}
+                            if(rankmax[1]=somaseg[2][1]){winner[1]=somaseg[2][1];}
+                            if(rankmax[2]=somaseg[0][2]){winner[2]=somaseg[0][2];}
+                            if(rankmax[2]=somaseg[1][2]){winner[2]=somaseg[1][2];}
+                            if(rankmax[2]=somaseg[2][2]){winner[2]=somaseg[2][2];}
+                            if(rankmax[3]=somaseg[0][3]){winner[3]=somaseg[0][3];}
+                            if(rankmax[3]=somaseg[1][3]){winner[3]=somaseg[1][3];}
+                            if(rankmax[3]=somaseg[2][3]){winner[3]=somaseg[2][3];}
+                            if(rankmax[4]=somaseg[0][4]){winner[4]=somaseg[0][4];}
+                            if(rankmax[4]=somaseg[1][4]){winner[4]=somaseg[1][4];}
+                            if(rankmax[4]=somaseg[2][4]){winner[4]=somaseg[2][4];}
+
+                           /* Tirando a média de cada time*/
+                             if(somaseg[0][0]!=rankmax[0]&&somaseg[0][0]!=rankmin[0]){winner[0]=(winner[0]+somaseg[0][0])/2;}
+                             if(somaseg[1][0]!=rankmax[0]&&somaseg[1][0]!=rankmin[0]){winner[0]=(winner[0]+somaseg[1][0])/2;}
+                             if(somaseg[2][0]!=rankmax[0]&&somaseg[2][0]!=rankmin[0]){winner[0]=(winner[0]+somaseg[2][0])/2;}
+                             if(somaseg[0][1]!=rankmax[1]&&somaseg[0][1]!=rankmin[1]){winner[1]=(winner[1]+somaseg[0][1])/2;}
+                             if(somaseg[1][1]!=rankmax[1]&&somaseg[1][1]!=rankmin[1]){winner[1]=(winner[1]+somaseg[1][1])/2;}
+                             if(somaseg[2][1]!=rankmax[1]&&somaseg[2][1]!=rankmin[1]){winner[1]=(winner[1]+somaseg[2][1])/2;}
+                             if(somaseg[0][2]!=rankmax[2]&&somaseg[0][2]!=rankmin[2]){winner[2]=(winner[2]+somaseg[0][2])/2;}
+                             if(somaseg[1][2]!=rankmax[2]&&somaseg[1][2]!=rankmin[2]){winner[2]=(winner[2]+somaseg[1][2])/2;}
+                             if(somaseg[2][2]!=rankmax[2]&&somaseg[2][2]!=rankmin[2]){winner[2]=(winner[2]+somaseg[2][2])/2;}
+                             if(somaseg[0][3]!=rankmax[3]&&somaseg[0][3]!=rankmin[3]){winner[3]=(winner[3]+somaseg[0][3])/2;}
+                             if(somaseg[1][3]!=rankmax[3]&&somaseg[1][3]!=rankmin[3]){winner[3]=(winner[3]+somaseg[1][3])/2;}
+                             if(somaseg[2][3]!=rankmax[3]&&somaseg[2][3]!=rankmin[3]){winner[3]=(winner[3]+somaseg[2][3])/2;}
+                             if(somaseg[0][4]!=rankmax[4]&&somaseg[0][4]!=rankmin[4]){winner[4]=(winner[4]+somaseg[0][4])/2;}
+                             if(somaseg[1][4]!=rankmax[4]&&somaseg[1][4]!=rankmin[4]){winner[4]=(winner[4]+somaseg[1][4])/2;}
+                             if(somaseg[2][4]!=rankmax[4]&&somaseg[2][4]!=rankmin[4]){winner[4]=(winner[4]+somaseg[2][4])/2;}
+
+
+                            if(winner[0]>=winner[1]&&winner[0]>=winner[2]&&winner[0]>=winner[3]&&winner[0]>=winner[4]){rank[0]=winner[0];}
+                            if(winner[1]>=winner[1]&&winner[1]>=winner[2]&&winner[1]>=winner[3]&&winner[1]>=winner[4]){rank[0]=winner[1];}
+                            if(winner[2]>=winner[1]&&winner[2]>=winner[2]&&winner[2]>=winner[3]&&winner[2]>=winner[4]){rank[0]=winner[2];}
+                            if(winner[3]>=winner[1]&&winner[3]>=winner[2]&&winner[3]>=winner[3]&&winner[3]>=winner[4]){rank[0]=winner[3];}
+                            if(winner[4]>=winner[1]&&winner[4]>=winner[2]&&winner[4]>=winner[3]&&winner[4]>=winner[4]){rank[0]=winner[4];}
+
+                            if(winner[0]>=winner[1]&&winner[0]>=winner[2]&&winner[0]>=winner[3]&&winner[0]>=winner[4]&&winner[0]!=rank[0]){rank[1]=winner[0];}
+                            if(winner[1]>=winner[1]&&winner[1]>=winner[2]&&winner[1]>=winner[3]&&winner[1]>=winner[4]&&winner[1]!=rank[0]){rank[1]=winner[1];}
+                            if(winner[2]>=winner[1]&&winner[2]>=winner[2]&&winner[2]>=winner[3]&&winner[2]>=winner[4]&&winner[2]!=rank[0]){rank[1]=winner[2];}
+                            if(winner[3]>=winner[1]&&winner[3]>=winner[2]&&winner[3]>=winner[3]&&winner[3]>=winner[4]&&winner[3]!=rank[0]){rank[1]=winner[3];}
+                            if(winner[4]>=winner[1]&&winner[4]>=winner[2]&&winner[4]>=winner[3]&&winner[4]>=winner[4]&&winner[4]!=rank[0]){rank[1]=winner[4];}
+
+                            if(winner[0]>=winner[1]&&winner[0]>=winner[2]&&winner[0]>=winner[3]&&winner[0]>=winner[4]&&winner[0]!=rank[0]&&winner[0]!=rank[1]){rank[2]=winner[0];}
+                            if(winner[1]>=winner[1]&&winner[1]>=winner[2]&&winner[1]>=winner[3]&&winner[1]>=winner[4]&&winner[1]!=rank[0]&&winner[1]!=rank[1]){rank[2]=winner[1];}
+                            if(winner[2]>=winner[1]&&winner[2]>=winner[2]&&winner[2]>=winner[3]&&winner[2]>=winner[4]&&winner[2]!=rank[0]&&winner[2]!=rank[1]){rank[2]=winner[2];}
+                            if(winner[3]>=winner[1]&&winner[3]>=winner[2]&&winner[3]>=winner[3]&&winner[3]>=winner[4]&&winner[3]!=rank[0]&&winner[3]!=rank[1]){rank[2]=winner[3];}
+                            if(winner[4]>=winner[1]&&winner[4]>=winner[2]&&winner[4]>=winner[3]&&winner[4]>=winner[4]&&winner[4]!=rank[0]&&winner[4]!=rank[1]){rank[2]=winner[4];}
+
+                            if(winner[0]>=winner[1]&&winner[0]>=winner[2]&&winner[0]>=winner[3]&&winner[0]>=winner[4]&&winner[0]!=rank[0]&&winner[0]!=rank[1]&&winner[0]!=rank[2]){rank[3]=winner[0];}
+                            if(winner[1]>=winner[1]&&winner[1]>=winner[2]&&winner[1]>=winner[3]&&winner[1]>=winner[4]&&winner[1]!=rank[0]&&winner[1]!=rank[1]&&winner[1]!=rank[2]){rank[3]=winner[1];}
+                            if(winner[2]>=winner[1]&&winner[2]>=winner[2]&&winner[2]>=winner[3]&&winner[2]>=winner[4]&&winner[2]!=rank[0]&&winner[2]!=rank[1]&&winner[2]!=rank[2]){rank[3]=winner[2];}
+                            if(winner[3]>=winner[1]&&winner[3]>=winner[2]&&winner[3]>=winner[3]&&winner[3]>=winner[4]&&winner[3]!=rank[0]&&winner[3]!=rank[1]&&winner[3]!=rank[2]){rank[3]=winner[3];}
+                            if(winner[4]>=winner[1]&&winner[4]>=winner[2]&&winner[4]>=winner[3]&&winner[4]>=winner[4]&&winner[4]!=rank[0]&&winner[4]!=rank[1]&&winner[4]!=rank[2]){rank[3]=winner[4];}
+
+                            if(winner[0]>=winner[1]&&winner[0]>=winner[2]&&winner[0]>=winner[3]&&winner[0]>=winner[4]&&winner[0]!=rank[0]&&winner[0]!=rank[1]&&winner[0]!=rank[2]&&winner[0]!=rank[3]){rank[4]=winner[0];}
+                            if(winner[1]>=winner[1]&&winner[1]>=winner[2]&&winner[1]>=winner[3]&&winner[1]>=winner[4]&&winner[1]!=rank[0]&&winner[1]!=rank[1]&&winner[1]!=rank[2]&&winner[1]!=rank[3]){rank[4]=winner[1];}
+                            if(winner[2]>=winner[1]&&winner[2]>=winner[2]&&winner[2]>=winner[3]&&winner[2]>=winner[4]&&winner[2]!=rank[0]&&winner[2]!=rank[1]&&winner[2]!=rank[2]&&winner[2]!=rank[3]){rank[4]=winner[2];}
+                            if(winner[3]>=winner[1]&&winner[3]>=winner[2]&&winner[3]>=winner[3]&&winner[3]>=winner[4]&&winner[3]!=rank[0]&&winner[3]!=rank[1]&&winner[3]!=rank[2]&&winner[3]!=rank[3]){rank[4]=winner[3];}
+                            if(winner[4]>=winner[1]&&winner[4]>=winner[2]&&winner[4]>=winner[3]&&winner[4]>=winner[4]&&winner[4]!=rank[0]&&winner[4]!=rank[1]&&winner[4]!=rank[2]&&winner[4]!=rank[3]){rank[4]=winner[4];}
+
+                            rankmin[0]=rank[0]/60;
+                            rankseg[0]=rank[0]%60;
+                            rankmilli[0]=rankseg[0]%60;
 
                         printf("**********CLASSIFICAÇÃO GERAL DAS EQUIPES:**********\n\n");
-                        printf("1° lugar – EQUIPE X – Tempo (minutos:segundos:mili-segundos):\n");
-                        printf("2° lugar – EQUIPE X – Tempo (minutos:segundos:mili-segundos):\n");
-                        printf("3° lugar – EQUIPE X – Tempo (minutos:segundos:mili-segundos):\n");
-                        printf("4° lugar – EQUIPE X – Tempo (minutos:segundos:mili-segundos):\n");
-                        printf("5° lugar – EQUIPE X – Tempo (minutos:segundos:mili-segundos):\n\n\n\n");
+                        printf("1° lugar – EQUIPE X – Tempo %f:\n",rank[0]);
+                        printf("2° lugar – EQUIPE X – Tempo %f:\n",rank[1]);
+                        printf("3° lugar – EQUIPE X – Tempo %f:\n",rank[2]);
+                        printf("4° lugar – EQUIPE X – Tempo %f:\n",rank[3]);
+                        printf("5° lugar – EQUIPE X – Tempo %f:\\n\n",rank[4]);
                         printf("Digite 1 para voltar ao menu principal   \n");
                         scanf("%d",&menu);
                         if(menu==1){goto menup;}
@@ -229,9 +351,8 @@ int main()
                             {
                             /*goto menup;*/
 
+                           /*int min=(a<=b&&a<=c)?a:(b<=a&&b<=c)?b:c;*/
 
-
-                            somaseg[0][0]=(minuto [0][0]/60+ segundo[0][0]+milisegundo[0][0]/1000);
 
 
                             system("cls");
@@ -240,7 +361,7 @@ int main()
                             printf("2° lugar – EQUIPE X – Tempo (minutos:segundos:mili-segundos):\n");
                             printf("3° lugar – EQUIPE X – Tempo (minutos:segundos:mili-segundos):\n");
                             printf("4° lugar – EQUIPE X – Tempo (minutos:segundos:mili-segundos):\n");
-                            printf("5° lugar – EQUIPE X – Tempo (minutos:segundos:mili-segundos):\n\n\n\n");
+                            printf("5° lugar – EQUIPE X – Tempo (minutos:segundos:mili-segundos):\n");
                             printf("Digite 1 para voltar ao menu principal   \n");
                             printf("%f",somaseg[0][0]);
                             scanf("%d",&menu);
