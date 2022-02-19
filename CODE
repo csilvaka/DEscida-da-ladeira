@@ -1,15 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <math.h>
 
-    float minuto [2][4]=0;
-    float segundo [2][4]=0;
-    float milisegundo [2][4]=0;
-    float somaseg [2][4]=0;
-    int rankmin[4]=0;
-    int rankseg[4]=0;
-    int rankmilli[4]=0;
-    float rankmin[4]=0,rankmax[4]=0, winner[4]=0, rank[4]=0;
+    float minuto [2][4];
+    float segundo [2][4];
+    float milisegundo [2][4];
+    float somaseg [2][4];
+    float rankminu[4];
+    int rankseg[4];
+    int rankmilli[4];
+    int rankmin[4];
+    float rankmax[4], winner[4];
+    int rank[4];
 
 int main()
 {
@@ -333,12 +336,12 @@ int main()
                             if(winner[3]>=winner[1]&&winner[3]>=winner[2]&&winner[3]>=winner[3]&&winner[3]>=winner[4]&&winner[3]!=rank[0]&&winner[3]!=rank[1]&&winner[3]!=rank[2]&&winner[3]!=rank[3]){rank[4]=winner[3];}
                             if(winner[4]>=winner[1]&&winner[4]>=winner[2]&&winner[4]>=winner[3]&&winner[4]>=winner[4]&&winner[4]!=rank[0]&&winner[4]!=rank[1]&&winner[4]!=rank[2]&&winner[4]!=rank[3]){rank[4]=winner[4];}
 
-                            rankmin[0]=rank[0]/60;
+                            rankminu[0]=rank[0]/60;
                             rankseg[0]=rank[0]%60;
                             rankmilli[0]=rankseg[0]%60;
 
                         printf("**********CLASSIFICAÇÃO GERAL DAS EQUIPES:**********\n\n");
-                        printf("1° lugar – EQUIPE X – Tempo %f:\n",rank[0]);
+                        printf("1° lugar – EQUIPE X – Tempo %f:%f:%f:\n",rankminu[0]),rankseg[0], rankmilli[0];
                         printf("2° lugar – EQUIPE X – Tempo %f:\n",rank[1]);
                         printf("3° lugar – EQUIPE X – Tempo %f:\n",rank[2]);
                         printf("4° lugar – EQUIPE X – Tempo %f:\n",rank[3]);
